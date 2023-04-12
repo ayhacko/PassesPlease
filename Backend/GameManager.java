@@ -4,14 +4,9 @@ public class GameManager {
     private GameState state;
     private int day;
     private int savings;
-    public enum GameState {
-        INITIAL,
-        GAMEPLAY,
-        ENDDAY
-    }
 
     public GameManager() {
-        state = GameState.INITIAL;
+        state = GameState.TITLE;
         day = 1;
         savings = 20;
     }
