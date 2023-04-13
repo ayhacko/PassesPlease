@@ -1,11 +1,14 @@
+package Frontend;
+
 import Backend.*;
-import Frontend.*;
-import Resources.*;
-import Resources.Images.*;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class PassesPlease {
+    private static final int FRAME_WIDTH = 1280;
+    private static final int FRAME_HEIGHT = 720;
+
     private final JFrame frame;
     private final JPanel titlePanel = new TitlePanel();
     private final JPanel gamePanel = new GamePanel();
@@ -16,9 +19,14 @@ public class PassesPlease {
         frame = new JFrame("Passes, Please");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        frame.setContentPane(titlePanel);
 
+        manager = new GameManager(this);
 
-        manager = new GameManager();
+        frame.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
+        frame.pack();
+        frame.setResizable(false);
+        frame.setVisible(true);
     }
 
     public void changePanel(GameState state) {
