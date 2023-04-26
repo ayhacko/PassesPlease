@@ -1,5 +1,6 @@
 package Backend;
 
+import java.awt.*;
 import Frontend.PassesPlease;
 
 public class GameManager {
@@ -18,5 +19,6 @@ public class GameManager {
     public void setGameState(GameState state) {
         this.state = state;
         game.changePanel(state);
+        System.out.println("" + state);
     }
 }
