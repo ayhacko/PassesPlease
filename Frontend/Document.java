@@ -37,6 +37,10 @@ public abstract class Document {
         expanded = false;
     }
 
+    public void moveTo(Coordinate coordinate) {
+        position = coordinate;
+    }
+
     public abstract boolean onComponent(Coordinate coordinate);
     public abstract void draw(Graphics2D g);
 }

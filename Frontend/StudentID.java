@@ -5,9 +5,9 @@ import java.awt.image.*;
 import Resources.Images.*;
 
 public class StudentID extends Document {
-    public final BufferedImage image = Images.loadImage();
+    //public final BufferedImage image = Images.loadImage();
     public StudentID(Coordinate position) {
-        super();
+        super(null, null);
     }
 
     @Override

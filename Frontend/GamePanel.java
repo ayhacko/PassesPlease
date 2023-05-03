@@ -3,16 +3,22 @@ package Frontend;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.image.*;
+import java.util.ArrayList;
 
 import Backend.*;
 import Resources.Images.*;
 
-public class GamePanel extends JPanel implements ActionListener, MouseListener {
+public class GamePanel extends JPanel implements ActionListener {
     private GameManager manager;
+    private ArrayList<Document> documents;
+    private Document document;
+    private Coordinate wherePressed;
 
     public GamePanel(GameManager manager) {
         this.manager = manager;
+        MouseHandler handler = new MouseHandler();
+        this.addMouseListener(handler);
+        this.addMouseMotionListener(handler);
     }
 
     @Override
@@ -30,28 +36,27 @@ public class GamePanel extends JPanel implements ActionListener, MouseListener {
 
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
+    public class MouseHandler extends MouseAdapter {
+        @Override
+        public void mousePressed(MouseEvent e) {
+            boolean documentClicked = false;
+            for (int i = 0; i < documents.size(); i++) {
+                if (documents.get(i).onComponent(new Coordinate(e.getX(), e.getY()))) {
+                    documentClicked = true;
+                    document = documents.remove(documents.size() - 1);
+                    documents.add(0, document);
+                    break;
+                }
+            }
+            if (!documentClicked) {
+                document = null;
+            }
+        }
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            if (document != null) {
+                document.moveTo(new Coordinate(e.getX() - wherePressed.getX(), e.getY() - wherePressed.getY()));
+            }
+        }
     }
 }
