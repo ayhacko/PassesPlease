@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements ActionListener, MouseListener {
         g.drawImage(Images.toBufferedImage(Images.loadImage("upper_map.png").getScaledInstance(1280, 240, Image.SCALE_DEFAULT)), null, 0, 0);
         g.drawImage(Images.toBufferedImage(Images.loadImage("lower_left.png").getScaledInstance(430, 480, Image.SCALE_DEFAULT)), null, 0, 240);
         g.drawImage(Images.toBufferedImage(Images.loadImage("desk.png").getScaledInstance(880, 480, Image.SCALE_DEFAULT)), null, 430, 240);
+        g.drawImage(Images.toBufferedImage(Images.loadImage("IDCard.png").getScaledInstance(300, 200, Image.SCALE_DEFAULT)), null, 430, 240);
     }
 
     @Override
