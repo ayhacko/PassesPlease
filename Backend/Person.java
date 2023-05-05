@@ -6,5 +6,4 @@ public abstract class Person {
     private String height;
     private String weight;
 
-
 }

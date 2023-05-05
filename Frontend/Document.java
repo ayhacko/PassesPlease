@@ -1,20 +1,14 @@
 package Frontend;
 
 import java.awt.*;
-import java.awt.image.*;
 
 public abstract class Document {
-    private BufferedImage image;
     private Coordinate position;
     private boolean expanded;
 
-    public Document(BufferedImage image, Coordinate position) {
-        this.image = image;
+    public Document(Coordinate position) {
+        this.position = position;
         expanded = false;
-    }
-
-    public BufferedImage getImage() {
-        return image;
     }
 
     public Coordinate getPosition() {
@@ -35,6 +29,14 @@ public abstract class Document {
 
     public void minimize() {
         expanded = false;
+    }
+
+    public void moveTo(Coordinate coordinate) {
+        position = coordinate;
+    }
+
+    public void moveBy(int x, int y) {
+        position = new Coordinate(position.getX() + x, position.getY() + y);
     }
 
     public abstract boolean onComponent(Coordinate coordinate);
