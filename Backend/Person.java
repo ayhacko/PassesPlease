@@ -10,7 +10,6 @@ public abstract class Person {
     private String weight;
     private String idExpiration;
     private String passDay;
-    private ArrayList<String> tests;
     private String permitDay;
     private ArrayList<String> diseases;
     private String vaccineExpiration;
@@ -18,6 +17,7 @@ public abstract class Person {
     private boolean letThrough;
 
     public Person(String name, String idNumber, String birthDate, String height, String weight, String idExpiration, String passDay, ArrayList<String> tests, String permitDay, ArrayList<String> diseases, String vaccineExpiration, ArrayList<Document> documents) {
+        StudentID id = new StudentID()
         letThrough = Math.random() <= 0.33;
     }
 
