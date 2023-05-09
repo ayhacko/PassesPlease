@@ -10,8 +10,8 @@ import Resources.Images.*;
 
 public class GamePanel extends JPanel implements ActionListener {
     private GameManager manager;
-    private ArrayList<Document> documents;
-    private Document document;
+    private ArrayList<UIDocument> documents;
+    private UIDocument document;
     private Coordinate wherePressed;
     private Coordinate offset;
 
@@ -21,7 +21,7 @@ public class GamePanel extends JPanel implements ActionListener {
         this.addMouseListener(handler);
         this.addMouseMotionListener(handler);
         documents = new ArrayList();
-        documents.add(new StudentID(new Coordinate(430, 240)));
+        documents.add(new UIStudentID(new Coordinate(430, 240)));
     }
 
     @Override
@@ -31,7 +31,7 @@ public class GamePanel extends JPanel implements ActionListener {
         g.fillRect(0, 0, 1280, 720);
         g.drawImage(Images.toBufferedImage(Images.loadImage("lower_left.png").getScaledInstance(430, 480, Image.SCALE_DEFAULT)), null, 0, 240);
         g.drawImage(Images.toBufferedImage(Images.loadImage("desk.png").getScaledInstance(880, 480, Image.SCALE_DEFAULT)), null, 430, 240);
-        for (Document doc : documents) {
+        for (UIDocument doc : documents) {
             doc.draw(g);
         }
         g.drawImage(Images.toBufferedImage(Images.loadImage("upper_map.png").getScaledInstance(1280, 240, Image.SCALE_DEFAULT)), null, 0, 0);
