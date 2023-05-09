@@ -1,13 +1,16 @@
 package Frontend;
 
 import java.awt.*;
+import Backend.*;
 
-public abstract class Document {
+public abstract class UIDocument {
     private Coordinate position;
     private boolean expanded;
+    private Document document;
 
-    public Document(Coordinate position) {
+    public UIDocument(Coordinate position, Document document) {
         this.position = position;
+        this.document = document;
         expanded = false;
     }
 
