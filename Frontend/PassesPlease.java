@@ -13,7 +13,7 @@ public class PassesPlease {
     private final JPanel screens;
     private final TitlePanel titlePanel;
     private final GamePanel gamePanel;
-    private final DayPanel dayPanel;
+    //private final DayPanel dayPanel;
     private final EndPanel endPanel;
     private UIPerson uiPerson;
 

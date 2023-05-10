@@ -21,7 +21,7 @@ public class GameManager {
         timeLeft = 300;
     }
 
-    @Override
+
     public void actionPerformed(ActionEvent e) {
 
     }

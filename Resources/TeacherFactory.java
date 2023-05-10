@@ -4,7 +4,7 @@ import Backend.Document;
 
 import java.util.ArrayList;
 
-public class StudentFactory {
+public class TeacherFactory {
     public static String generateName() {
         return "";
     }
@@ -42,16 +42,16 @@ public class StudentFactory {
 
     public static String generateIDExpiration(){
         int year = 2089;
-        int month = (int) (Math.random() * 2) + 10;
+        int month = (int) (Math.random() * 5) + 8;
         int day = (int) (Math.random() * 28) + 1;
-        return month + "/" + year + "/" + day;
+        return year + "-" + month + "-" + day;
     }
 
     public static String generateVaccineExpiration(){
         int year = 2089;
-        int month = (int) (Math.random() * 2) + 10;
+        int month = (int) (Math.random() * 5) + 8;
         int day = (int) (Math.random() * 28) + 1;
-        return month + "/" + year + "/" + day;
+        return year + "-" + month + "-" + day;
     }
 
     public static String generatePermitDay(){
@@ -99,5 +99,6 @@ public class StudentFactory {
         }
         return document;
     }
+
      */
 }
