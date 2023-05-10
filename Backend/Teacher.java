@@ -1,5 +1,5 @@
 package Backend;
-
+/*
 import Resources.TeacherFactory;
 import java.util.ArrayList;
 
@@ -20,3 +20,4 @@ public class Teacher extends Person {
         documents.add(super.getSupplement());
     }
 }
+*/

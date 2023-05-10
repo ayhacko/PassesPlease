@@ -35,7 +35,7 @@ public class StudentFactory {
         return weight + "";
     }
 
-    public static String idExpiration(){
+    public static String generateIDExpiration(){
         int year = 2089;
         int month = (int) (Math.random() * 5) + 8;
         int day = (int) (Math.random() * 28) + 1;
