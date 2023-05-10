@@ -12,7 +12,8 @@ public class GameManager {
     private int score;
     private int timeLeft;
     private Person person;
-    private int stamped;
+    private boolean hasDecided;
+    private boolean decision;
 
     public GameManager(PassesPlease game) {
         this.game = game;
@@ -21,50 +22,26 @@ public class GameManager {
         timeLeft = 300;
     }
 
-
-    public void actionPerformed(ActionEvent e) {
-
-    }
-
     public void setGameState(GameState state) {
         this.state = state;
         game.changePanel(state);
         System.out.println("" + state);
     }
 
-    public void playGame() {
-        while (timeLeft > 0) {
-            int people = 0;
-            while (people <= 3) {
-                people++;
-                if (Math.random() > 0.85) {
-                    new Teacher();
-                } else {
-                    new Student();
-                }
-            }
-            day++;
-        }
-    }
-
     public void nextPerson() {
+        if (!decision && !person.letThrough()) {
+            score += 5;
+            timeLeft += 5;
+        } else if (decision && person.letThrough()) {
+            score += 1;
+        } else {
+            timeLeft -= 15;
+        }
         if (Math.random() > 0.85) {
             person = new Teacher();
         } else {
             person = new Student();
         }
-    }
-
-    public boolean validDocuments() {
-        if (person instanceof Student) {
-
-        } else if (person instanceof Teacher) {
-
-        }
-    }
-
-    public boolean correctEntry() {
-
     }
 
     public int getTime() {
@@ -74,11 +51,4 @@ public class GameManager {
     public void decreaseTime() {
         timeLeft--;
     }
-
-    public void timePenalty() {
-        timeLeft -= 15;
-        if (timeLeft < 0)
-            timeLeft = 0;
-    }
-
 }
