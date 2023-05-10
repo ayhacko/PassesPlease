@@ -13,7 +13,6 @@ public class PassesPlease {
     private final JPanel screens;
     private final TitlePanel titlePanel;
     private final GamePanel gamePanel;
-    //private final DayPanel dayPanel;
     private final EndPanel endPanel;
     private UIPerson uiPerson;
 
@@ -35,7 +34,6 @@ public class PassesPlease {
         frame.setContentPane(screens);
 
         frame.setPreferredSize(new Dimension(FRAME_WIDTH, FRAME_HEIGHT));
-        //frame.set
         frame.pack();
         frame.setResizable(false);
         frame.setVisible(true);
@@ -45,9 +43,10 @@ public class PassesPlease {
         CardLayout layout = (CardLayout) screens.getLayout();
         if (state == GameState.TITLE)
             layout.show(screens, "TITLE");
-        else if (state == GameState.GAMEPLAY)
+        else if (state == GameState.GAMEPLAY) {
             layout.show(screens, "GAME");
-        else if (state == GameState.ENDDAY)
+            gamePanel.startTimer();
+        } else if (state == GameState.ENDDAY)
             layout.show(screens, "DAY");
         else
             layout.show(screens, "END");

@@ -10,7 +10,7 @@ import Resources.Images.*;
 
 public class GamePanel extends JPanel implements ActionListener {
     private GameManager manager;
-    Timer timer;
+    private Timer timer;
     private ArrayList<UIDocument> documents;
     private UIDocument document;
     private Coordinate wherePressed;
@@ -21,10 +21,17 @@ public class GamePanel extends JPanel implements ActionListener {
         MouseHandler handler = new MouseHandler();
         this.addMouseListener(handler);
         this.addMouseMotionListener(handler);
-        documents = new ArrayList();
+        //uiPerson = new UIPerson()
         documents.add(new UIStudentID(new Coordinate(430, 240)));
         timer = new Timer(1000, this);
+    }
+
+    public void startTimer() {
         timer.start();
+    }
+
+    public void stopTimer() {
+        timer.stop();
     }
 
     @Override
@@ -44,12 +51,14 @@ public class GamePanel extends JPanel implements ActionListener {
         uiPerson.drawDocuments(g);
     }
 
+    /*
     public void returnedDocuments() {
         if (manager.validDocuments()) {
             uiPerson.fadeOut();
             manager.nextPerson();
         }
     }
+    */
 
 
     public void newUIPerson(Person person) {
@@ -61,20 +70,20 @@ public class GamePanel extends JPanel implements ActionListener {
         manager.decreaseTime();
         if (manager.getTime() <= 0) {
             timer.stop();
-
         }
+        System.out.println(manager.getTime());
     }
 
     public class MouseHandler extends MouseAdapter {
         @Override
         public void mousePressed(MouseEvent e) {
             boolean documentClicked = false;
-            for (int i = 0; i < documents.size(); i++) {
+            for (int i = documents.size() - 1; i >= 0; i--) {
                 if (documents.get(i).onComponent(new Coordinate(e.getX(), e.getY()))) {
                     wherePressed = new Coordinate(e.getX(), e.getY());
                     documentClicked = true;
                     document = documents.remove(i);
-                    documents.add(0, document);
+                    documents.add(document);
                     break;
                 }
             }

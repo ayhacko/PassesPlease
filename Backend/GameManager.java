@@ -25,7 +25,6 @@ public class GameManager {
     public void setGameState(GameState state) {
         this.state = state;
         game.changePanel(state);
-        System.out.println("" + state);
     }
 
     public void nextPerson() {

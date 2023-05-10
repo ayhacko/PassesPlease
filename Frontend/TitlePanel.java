@@ -8,11 +8,11 @@ import Resources.Images.Images;
 import Resources.Fonts.Fonts;
 
 public class TitlePanel extends JPanel implements ActionListener, MouseListener {
-    GameManager manager;
-    Graphics2D g;
-    int y = 200;
+    private GameManager manager;
+    private Graphics2D g;
+    private int y = 200;
     boolean toggle = false;
-    Timer timer;
+    private Timer timer;
 
     public TitlePanel(GameManager manager) {
         this.manager = manager;
