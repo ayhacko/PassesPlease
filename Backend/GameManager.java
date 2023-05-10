@@ -21,4 +21,19 @@ public class GameManager {
         game.changePanel(state);
         System.out.println("" + state);
     }
+
+    public void playGame() {
+        while (day < 8) {
+            int people = 0;
+            while (people <= 3) {
+                people++;
+                if (Math.random() > 0.75) {
+                    new Teacher();
+                } else {
+                    new Student();
+                }
+            }
+            day++;
+        }
+    }
 }
