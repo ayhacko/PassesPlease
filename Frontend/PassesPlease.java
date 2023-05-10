@@ -22,7 +22,6 @@ public class PassesPlease {
 
         titlePanel = new TitlePanel(manager);
         gamePanel = new GamePanel(manager);
-        dayPanel = new DayPanel(manager);
         endPanel = new EndPanel(manager);
 
         frame = new JFrame("Passes, Please");
@@ -31,7 +30,6 @@ public class PassesPlease {
         screens = new JPanel(new CardLayout());
         screens.add(titlePanel, "TITLE");
         screens.add(gamePanel, "GAME");
-        screens.add(dayPanel, "DAY");
         screens.add(endPanel, "END");
 
         frame.setContentPane(screens);

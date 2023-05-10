@@ -9,7 +9,8 @@ public class Student extends Person {
     public Student() {
         super(StudentFactory.generateName(), StudentFactory.generateIDNumber(), StudentFactory.generateBirthDate(), StudentFactory.generateHeight(), StudentFactory.generateWeight(), StudentFactory.generateGrade(), StudentFactory.generateIDExpiration(), StudentFactory.generateVaccineExpiration());
         if (!super.letThrough()) {
-            if () {
+            double seed = Math.random();
+            if (seed < 0.125) {
                 double rand = Math.random();
                 if (rand < 0.25) {
                     super.setStudentID(null);
@@ -20,13 +21,13 @@ public class Student extends Person {
                 } else {
                     super.setSupplement(null);
                 }
-            } else if () {
+            } else if (seed < 0.25) {
                 if (Math.random() < 0.5) {
                     super.getStudentID().messUpName();
                 } else {
                     super.getMediaPass().messUpName();
                 }
-            } else if () {
+            } else if (seed < 0.375) {
                 double rand = Math.random();
                 if (rand < 0.33) {
                     super.getStudentID().messUpIDNumber();
@@ -35,12 +36,28 @@ public class Student extends Person {
                 } else {
                     super.getSupplement().messUpIDNumber();
                 }
-            } else if () {
-                if () {
+            } else if (seed < 0.5) {
+                if (Math.random() < 0.5) {
                     super.getStudentID().messUpBirthDate();
-                } else if () {
+                } else {
                     super.getSupplement().messUpBirthDate();
                 }
+            } else if (seed < 0.625) {
+                if (Math.random() < 0.5) {
+                    super.getStudentID().messUpHeight();
+                } else {
+                    super.getEaglePass().messUpHeight();
+                }
+            } else if (seed < 0.75) {
+                if (Math.random() < 0.5) {
+                    super.getStudentID().messUpWeight();
+                } else {
+                    super.getEaglePass().messUpWeight();
+                }
+            } else if (seed < 0.875) {
+                super.getStudentID().messUpIDExpiration();
+            } else {
+                super.getSupplement().messUpVaccineExpiration();
             }
         }
         documents = new ArrayList();
