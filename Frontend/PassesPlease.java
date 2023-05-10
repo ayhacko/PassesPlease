@@ -7,16 +7,15 @@ import java.awt.*;
 
 public class PassesPlease {
     private final GameManager manager;
-
     private static final int FRAME_WIDTH = 1280;
     private static final int FRAME_HEIGHT = 745;
-
     private final JFrame frame;
     private final JPanel screens;
     private final TitlePanel titlePanel;
     private final GamePanel gamePanel;
     private final DayPanel dayPanel;
     private final EndPanel endPanel;
+    private UIPerson uiPerson;
 
     public PassesPlease() {
         manager = new GameManager(this);

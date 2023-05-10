@@ -1,5 +1,5 @@
 package Backend;
 
-public class Document {
+public abstract class Document {
 
 }

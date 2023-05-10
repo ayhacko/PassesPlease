@@ -8,9 +8,8 @@ public abstract class Person {
     private String birthDate;
     private String height;
     private String weight;
+    private String grade;
     private String idExpiration;
-    private String passDay;
-    private String permitDay;
     private String vaccineExpiration;
     private StudentID studentID;
     private TeacherID teacherID;
@@ -19,12 +18,20 @@ public abstract class Person {
     private VaccinationSupplement supplement;
     private boolean letThrough;
 
-    public Person(String name, String idNumber, String birthDate, String height, String weight, String idExpiration, String vaccineExpiration) {
-        studentID = new StudentID(name, idNumber, birthDate, height, weight, idExpiration, vaccineExpiration);
-        teacherID = new TeacherID(name, idNumber, birthDate, height, weight, idExpiration, vaccineExpiration);
-        eaglePass = new EaglePass(name, idNumber, birthDate, height, weight, idExpiration, vaccineExpiration);
-        mediaPass = new MediaPass(name, idNumber, birthDate, height, weight, idExpiration, vaccineExpiration);
-        supplement = new VaccinationSupplement(name, idNumber, birthDate, height, weight, idExpiration, vaccineExpiration);
+    public Person(String name, String idNumber, String birthDate, String height, String weight, String grade, String idExpiration, String vaccineExpiration) {
+        this.name = name;
+        this.idNumber = idNumber;
+        this.birthDate = birthDate;
+        this.height = height;
+        this.weight = weight;
+        this.grade = grade;
+        this.idExpiration = idExpiration;
+        this.vaccineExpiration = vaccineExpiration;
+        studentID = new StudentID(name, idNumber, birthDate, height, weight, grade, idExpiration);
+        teacherID = new TeacherID(name, idNumber, birthDate, height, weight, idExpiration);
+        eaglePass = new EaglePass(idNumber, height, weight);
+        mediaPass = new MediaPass(name);
+        supplement = new VaccinationSupplement(idNumber, birthDate, vaccineExpiration);
         letThrough = Math.random() >= 0.33;
     }
 
@@ -32,7 +39,7 @@ public abstract class Person {
         return name;
     }
 
-    public String getIdNumber() {
+    public String getIDNumber() {
         return idNumber;
     }
 
@@ -48,16 +55,12 @@ public abstract class Person {
         return weight;
     }
 
-    public String getIdExpiration() {
+    public String getGrade() {
+        return grade;
+    }
+
+    public String getIDExpiration() {
         return idExpiration;
-    }
-
-    public String getPassDay() {
-        return passDay;
-    }
-
-    public String getPermitDay() {
-        return permitDay;
     }
 
     public String getVaccineExpiration() {

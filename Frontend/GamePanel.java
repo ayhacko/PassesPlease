@@ -10,10 +10,11 @@ import Resources.Images.*;
 
 public class GamePanel extends JPanel implements ActionListener {
     private GameManager manager;
+    Timer timer;
     private ArrayList<UIDocument> documents;
     private UIDocument document;
     private Coordinate wherePressed;
-    private Coordinate offset;
+    private UIPerson uiPerson;
 
     public GamePanel(GameManager manager) {
         this.manager = manager;
@@ -22,6 +23,8 @@ public class GamePanel extends JPanel implements ActionListener {
         this.addMouseMotionListener(handler);
         documents = new ArrayList();
         documents.add(new UIStudentID(new Coordinate(430, 240)));
+        timer = new Timer(1000, this);
+        timer.start();
     }
 
     @Override
@@ -34,12 +37,30 @@ public class GamePanel extends JPanel implements ActionListener {
         for (UIDocument doc : documents) {
             doc.draw(g);
         }
-        g.drawImage(Images.toBufferedImage(Images.loadImage("upper_map.png").getScaledInstance(1280, 240, Image.SCALE_DEFAULT)), null, 0, 0);
+    }
+
+    public void giveDocuments(Graphics2D g) {
+        uiPerson.drawDocuments(g);
+    }
+
+    public void returnedDocuments() {
+        if (manager.validDocuments()) {
+            uiPerson.fadeOut();
+            manager.nextPerson();
+        }
+    }
+
+    public void newUIPerson(Person person) {
+        uiPerson = new UIPerson(person);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        manager.decreaseTime();
+        if (manager.getTime() <= 0) {
+            timer.stop();
 
+        }
     }
 
     public class MouseHandler extends MouseAdapter {
@@ -50,7 +71,7 @@ public class GamePanel extends JPanel implements ActionListener {
                 if (documents.get(i).onComponent(new Coordinate(e.getX(), e.getY()))) {
                     wherePressed = new Coordinate(e.getX(), e.getY());
                     documentClicked = true;
-                    document = documents.remove(documents.size() - 1);
+                    document = documents.remove(i);
                     documents.add(0, document);
                     break;
                 }

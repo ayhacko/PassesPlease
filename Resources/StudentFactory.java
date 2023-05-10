@@ -25,7 +25,7 @@ public class StudentFactory {
     }
 
     public static String generateHeight(){
-        int height = (int) (Math.random() * 100) + 30;
+        int height = (int) (Math.random() * 100) + 100;
         return height + "";
     }
 
