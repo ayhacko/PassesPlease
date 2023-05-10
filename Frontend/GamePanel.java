@@ -34,6 +34,7 @@ public class GamePanel extends JPanel implements ActionListener {
         g.fillRect(0, 0, 1280, 720);
         g.drawImage(Images.toBufferedImage(Images.loadImage("lower_left.png").getScaledInstance(430, 480, Image.SCALE_DEFAULT)), null, 0, 240);
         g.drawImage(Images.toBufferedImage(Images.loadImage("desk.png").getScaledInstance(880, 480, Image.SCALE_DEFAULT)), null, 430, 240);
+        g.drawImage(Images.toBufferedImage(Images.loadImage("bell.png").getScaledInstance(150, 225, Image.SCALE_DEFAULT)), null, 1150, 180);
         for (UIDocument doc : documents) {
             doc.draw(g);
         }
@@ -49,6 +50,7 @@ public class GamePanel extends JPanel implements ActionListener {
             manager.nextPerson();
         }
     }
+
 
     public void newUIPerson(Person person) {
         uiPerson = new UIPerson(person);
