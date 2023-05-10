@@ -67,7 +67,7 @@ public abstract class Person {
     public boolean letThrough() {
         return letThrough;
     }
-
+//
     public void setLetThrough(boolean letThrough) {
         this.letThrough = letThrough;
     }
