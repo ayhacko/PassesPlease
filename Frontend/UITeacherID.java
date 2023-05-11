@@ -1,6 +1,10 @@
 package Frontend;
 
 import Backend.Document;
+import Backend.StudentID;
+import Backend.Teacher;
+import Backend.TeacherID;
+import Resources.Fonts.Fonts;
 import Resources.Images.Images;
 
 import java.awt.*;
@@ -32,6 +36,17 @@ public class UITeacherID extends UIDocument{
         if (!getReturned()) {
             if (getPosition().getX() > 410) {
                 g.drawImage(Images.toBufferedImage(Images.loadImage("teacher_ID.png").getScaledInstance(EXPANDED_WIDTH, EXPANDED_HEIGHT, Image.SCALE_DEFAULT)), null, getPosition().getX(), getPosition().getY());
+                g.setColor(Color.BLACK);
+                g.setFont(Fonts.loadFont(Fonts.SPY, 20));
+                g.drawString("Name: " + ((TeacherID) getDocument()).getName(), getPosition().getX() + 110, getPosition().getY() + 60);
+                g.drawString("ID: " + ((TeacherID) getDocument()).getIDNumber(), getPosition().getX() + 110, getPosition().getY() + 80);
+                g.drawString("DoB: " + ((TeacherID) getDocument()).getBirthDate(), getPosition().getX() + 110, getPosition().getY() + 100);
+                g.drawString("Exp.: " + ((TeacherID) getDocument()).getIDExpiration(), getPosition().getX() + 110, getPosition().getY() + 120);
+                g.drawString("Height: " + ((TeacherID) getDocument()).getHeight() + "cm", getPosition().getX() + 110, getPosition().getY() + 140);
+                g.drawString(((TeacherID) getDocument()).getWeight(),340,693);
+
+
+
             } else {
                 g.drawImage(Images.toBufferedImage(Images.loadImage("teacher_ID_small.png").getScaledInstance(EXPANDED_WIDTH_SMALL, EXPANDED_HEIGHT_SMALL, Image.SCALE_DEFAULT)), null, getPosition().getX(), getPosition().getY());
             }
