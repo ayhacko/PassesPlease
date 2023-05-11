@@ -35,7 +35,7 @@ public class UIVaccinationCard extends UIDocument{
         if (!getReturned()) {
             if (getPosition().getX() > 410) {
                 g.drawImage(Images.toBufferedImage(Images.loadImage("vaccination_card.png").getScaledInstance(EXPANDED_WIDTH, EXPANDED_HEIGHT, Image.SCALE_DEFAULT)), null, getPosition().getX(), getPosition().getY());
-                g.setColor(Color.GRAY);
+                g.setColor(Color.LIGHT_GRAY);
                 g.setFont(Fonts.loadFont(Fonts.SPY, 15));
                 g.drawString("DoB: " + ((VaccinationSupplement) getDocument()).getBirthDate(), getPosition().getX() + 40, getPosition().getY() + 30);
                 g.drawString("Exp.: " + ((VaccinationSupplement) getDocument()).getVaccineExpiration(), getPosition().getX() + 40, getPosition().getY() + 120);
