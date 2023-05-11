@@ -7,6 +7,10 @@ public abstract class Document {
         returned = false;
     }
 
+    public boolean getReturned() {
+        return returned;
+    }
+
     public void setReturned() {
         returned = true;
     }

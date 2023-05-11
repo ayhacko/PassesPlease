@@ -1,5 +1,6 @@
 package Frontend;
 
+import Backend.Document;
 import Resources.Images.Images;
 
 import java.awt.*;
@@ -10,8 +11,8 @@ public class UIVaccinationCard extends UIDocument{
     private static final int EXPANDED_HEIGHT = 125;
     private static final int EXPANDED_HEIGHT_SMALL = 50;
     private static final int EXPANDED_WIDTH_SMALL = 80;
-    public UIVaccinationCard(Coordinate position) {
-        super(position, null);
+    public UIVaccinationCard(Coordinate position, Document document) {
+        super(position, document);
     }
 
     @Override

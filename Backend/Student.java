@@ -7,7 +7,7 @@ public class Student extends Person {
     private ArrayList<Document> documents;
 
     public Student() {
-        super(StudentFactory.generateName(), StudentFactory.generateIDNumber(), StudentFactory.generateBirthDate(), StudentFactory.generateHeight(), StudentFactory.generateWeight(), StudentFactory.generateGrade(), StudentFactory.generateIDExpiration(), StudentFactory.generateVaccineExpiration());
+        super("Student" + ((int) (Math.random() * 12) + 1) + ".png", StudentFactory.generateName(), StudentFactory.generateIDNumber(), StudentFactory.generateBirthDate(), StudentFactory.generateHeight(), StudentFactory.generateWeight(), StudentFactory.generateGrade(), StudentFactory.generateIDExpiration(), StudentFactory.generateVaccineExpiration());
         if (!super.letThrough()) {
             double seed = Math.random();
             if (seed < 0.125) {
@@ -69,5 +69,9 @@ public class Student extends Person {
             documents.add(super.getMediaPass());
         if (super.getSupplement() != null)
             documents.add(super.getSupplement());
+    }
+
+    public ArrayList<Document> getDocuments() {
+        return documents;
     }
 }

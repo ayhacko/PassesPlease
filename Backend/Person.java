@@ -3,6 +3,7 @@ package Backend;
 import java.util.ArrayList;
 
 public abstract class Person {
+    private String imageString;
     private String name;
     private String idNumber;
     private String birthDate;
@@ -18,7 +19,8 @@ public abstract class Person {
     private VaccinationSupplement supplement;
     private boolean letThrough;
 
-    public Person(String name, String idNumber, String birthDate, String height, String weight, String grade, String idExpiration, String vaccineExpiration) {
+    public Person(String imageString, String name, String idNumber, String birthDate, String height, String weight, String grade, String idExpiration, String vaccineExpiration) {
+        this.imageString = imageString;
         this.name = name;
         this.idNumber = idNumber;
         this.birthDate = birthDate;
@@ -34,6 +36,10 @@ public abstract class Person {
         supplement = new VaccinationSupplement(idNumber, birthDate, vaccineExpiration);
         letThrough = Math.random() >= 0.33;
     }
+
+    public abstract ArrayList<Document> getDocuments();
+
+    public String getImageString() { return imageString; };
 
     public String getName() {
         return name;

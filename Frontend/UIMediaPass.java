@@ -1,18 +1,19 @@
 package Frontend;
 
+import Backend.Document;
 import Frontend.Coordinate;
 import Resources.Images.Images;
 
 import java.awt.*;
 
-public class UIMediaPass extends UIDocument{
+public class UIMediaPass extends UIDocument {
 
     private static final int EXPANDED_WIDTH = 250;
     private static final int EXPANDED_HEIGHT = 125;
     private static final int EXPANDED_HEIGHT_SMALL = 50;
     private static final int EXPANDED_WIDTH_SMALL = 80;
-    public UIMediaPass(Coordinate position) {
-        super(position, null);
+    public UIMediaPass(Coordinate position, Document document) {
+        super(position, document);
     }
 
     @Override

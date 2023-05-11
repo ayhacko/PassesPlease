@@ -2,14 +2,17 @@ package Frontend;
 
 import java.awt.*;
 import java.awt.image.*;
+
+import Backend.*;
 import Resources.Images.*;
+
 public class UIStudentID extends UIDocument {
     private static final int EXPANDED_WIDTH = 300;
     private static final int EXPANDED_HEIGHT = 200;
     private static final int EXPANDED_HEIGHT_SMALL = 66;
     private static final int EXPANDED_WIDTH_SMALL = 100;
-    public UIStudentID(Coordinate position) {
-        super(position, null);
+    public UIStudentID(Coordinate position, Document document) {
+        super(position, document);
     }
 
     @Override

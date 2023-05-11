@@ -1,5 +1,6 @@
 package Frontend;
 
+import Backend.Document;
 import Resources.Images.Images;
 
 import java.awt.*;
@@ -10,8 +11,8 @@ public class UITeacherID extends UIDocument{
     private static final int EXPANDED_HEIGHT = 200;
     private static final int EXPANDED_HEIGHT_SMALL = 66;
     private static final int EXPANDED_WIDTH_SMALL = 100;
-    public UITeacherID(Coordinate position) {
-        super(position, null);
+    public UITeacherID(Coordinate position, Document document) {
+        super(position, document);
     }
 
     @Override

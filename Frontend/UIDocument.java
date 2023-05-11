@@ -18,6 +18,14 @@ public abstract class UIDocument {
         return position;
     }
 
+    public boolean getReturned() {
+        return document.getReturned();
+    }
+
+    public void setReturned() {
+        document.setReturned();
+    }
+
     public void setPosition(Coordinate position) {
         this.position = position;
     }

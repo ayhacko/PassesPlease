@@ -3,7 +3,7 @@ package Backend;
 import java.awt.*;
 import java.awt.event.*;
 
-import Frontend.PassesPlease;
+import Frontend.*;
 
 public class GameManager {
     public static final String DATE = "9/6/89";
@@ -20,11 +20,24 @@ public class GameManager {
         state = GameState.TITLE;
         score = 0;
         timeLeft = 300;
+        if (Math.random() > 0.85) {
+            person = new Teacher();
+        } else {
+            person = new Student();
+        }
     }
 
     public void setGameState(GameState state) {
         this.state = state;
         game.changePanel(state);
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setDecision(boolean decision) {
+        this.decision = decision;
     }
 
     public void nextPerson() {
