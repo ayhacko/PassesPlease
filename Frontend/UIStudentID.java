@@ -33,7 +33,7 @@ public class UIStudentID extends UIDocument {
         if (!getReturned()) {
             if (getPosition().getX() > 410) {
                 g.drawImage(Images.toBufferedImage(Images.loadImage("IDCard.png").getScaledInstance(EXPANDED_WIDTH, EXPANDED_HEIGHT, Image.SCALE_DEFAULT)), null, getPosition().getX(), getPosition().getY());
-                g.setColor(Color.BLACK);
+                g.setColor(Color.GRAY);
                 g.setFont(Fonts.loadFont(Fonts.SPY, 20));
                 g.drawString("Name: " + ((StudentID) getDocument()).getName(), getPosition().getX() + 110, getPosition().getY() + 60);
                 g.drawString("ID: " + ((StudentID) getDocument()).getIDNumber(), getPosition().getX() + 110, getPosition().getY() + 80);
@@ -41,6 +41,7 @@ public class UIStudentID extends UIDocument {
                 g.drawString("Exp.: " + ((StudentID) getDocument()).getIDExpiration(), getPosition().getX() + 110, getPosition().getY() + 120);
                 g.drawString("Height: " + ((StudentID) getDocument()).getHeight() + " cm", getPosition().getX() + 110, getPosition().getY() + 140);
                 g.drawString(((StudentID) getDocument()).getGrade(), getPosition().getX() + 40, getPosition().getY() + 40);
+                g.drawImage(Images.toBufferedImage(Images.loadImage(((StudentID) getDocument()).getImageString()).getScaledInstance(100, 100, Image.SCALE_DEFAULT)), null, getPosition().getX()+5, getPosition().getY()+45);
                 g.drawString(((StudentID) getDocument()).getWeight(), 340 , 693);
 
 

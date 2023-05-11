@@ -11,4 +11,9 @@ public class MediaPass extends Document {
         int typoPlacement = (int) (Math.random() * name.length());
         name = name.substring(0, typoPlacement) + "i" + name.substring(typoPlacement);
     }
+
+    public String getName() {
+        return name;
+    }
+
 }

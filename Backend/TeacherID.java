@@ -1,6 +1,7 @@
 package Backend;
 
 public class TeacherID extends Document {
+    private String imageString;
     private String name;
     private String idNumber;
     private String birthDate;
@@ -8,13 +9,14 @@ public class TeacherID extends Document {
     private String weight;
     private String idExpiration;
 
-    public TeacherID(String name, String idNumber, String birthDate, String height, String weight, String idExpiration) {
+    public TeacherID(String name, String idNumber, String birthDate, String height, String weight, String idExpiration, String imageString) {
         this.name = name;
         this.idNumber = idNumber;
         this.birthDate = birthDate;
         this.height = height;
         this.weight = weight;
         this.idExpiration = idExpiration;
+        this.imageString = imageString;
     }
 
     public void messUpIDExpiration() {
@@ -24,6 +26,7 @@ public class TeacherID extends Document {
         idExpiration = month + "-" + day + "-" + year;
     }
 
+    public String getImageString(){return imageString;}
     public String getName() {
         return name;
     }

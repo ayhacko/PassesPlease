@@ -29,8 +29,8 @@ public abstract class Person {
         this.grade = grade;
         this.idExpiration = idExpiration;
         this.vaccineExpiration = vaccineExpiration;
-        studentID = new StudentID(name, idNumber, birthDate, height, weight, grade, idExpiration);
-        teacherID = new TeacherID(name, idNumber, birthDate, height, weight, idExpiration);
+        studentID = new StudentID(name, idNumber, birthDate, height, weight, grade, idExpiration,imageString);
+        teacherID = new TeacherID(name, idNumber, birthDate, height, weight, idExpiration, imageString);
         eaglePass = new EaglePass(idNumber, height, weight);
         mediaPass = new MediaPass(name);
         supplement = new VaccinationSupplement(idNumber, birthDate, vaccineExpiration);

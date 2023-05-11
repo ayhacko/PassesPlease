@@ -19,7 +19,7 @@ public class GameManager {
         this.game = game;
         state = GameState.TITLE;
         score = 0;
-        timeLeft = 3;
+        timeLeft = 300;
         if (Math.random() > 0.85) {
             person = new Teacher();
         } else {

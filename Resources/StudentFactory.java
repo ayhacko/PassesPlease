@@ -6,7 +6,12 @@ import java.util.ArrayList;
 
 public class StudentFactory {
     public static String generateName() {
-        return "";
+        String[] names = {"Logan", "Hayden", "Cameron", "Finley", "Avery", "Arden", "Landry", "JermaJesty", "Dweezil",
+                "Cricket", "Panda", "Sideral", "Raddix"
+        };
+        int num = (int) (Math.random()*6)+1;
+
+        return names[num];
     }
 
     public static String generateGrade() {
