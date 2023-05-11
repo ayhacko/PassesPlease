@@ -12,7 +12,6 @@ public class GameManager {
     private int score;
     private int timeLeft;
     private Person person;
-    private boolean hasDecided;
     private boolean decision;
 
     public GameManager(PassesPlease game) {
@@ -54,6 +53,7 @@ public class GameManager {
         } else {
             person = new Student();
         }
+        game.getGamePanel().setUIPerson(person);
     }
 
     public int getTime() {

@@ -77,27 +77,4 @@ public class StudentFactory {
         }
         return diseases;
     }
-
-    /*
-    public static ArrayList<Document> generateDocument(){
-        ArrayList<Document> document = new ArrayList<Document>();
-        int number = 0;
-
-        for(int i = 0; i<4; i++){
-            number = (int) (Math.random()*1)+1;
-            if(number == 1){
-                if(i == 0){
-
-                }else if(i == 1){
-
-                }else if(i == 2){
-
-                }else{
-
-                }
-            }
-        }
-        return document;
-    }
-     */
 }

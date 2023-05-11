@@ -26,6 +26,8 @@ public abstract class UIDocument {
         document.setReturned();
     }
 
+    public Document getDocument() { return document; }
+
     public void setPosition(Coordinate position) {
         this.position = position;
     }

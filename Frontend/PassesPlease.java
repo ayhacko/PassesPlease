@@ -52,6 +52,10 @@ public class PassesPlease {
             layout.show(screens, "END");
     }
 
+    public GamePanel getGamePanel() {
+        return gamePanel;
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override

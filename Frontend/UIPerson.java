@@ -41,12 +41,4 @@ public class UIPerson {
             doc.draw(g);
         }
     }
-
-    public void fadeIn() {
-
-    }
-
-    public void fadeOut() {
-
-    }
 }

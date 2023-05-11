@@ -6,6 +6,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 import Backend.*;
+import Resources.Fonts.Fonts;
 import Resources.Images.*;
 
 public class GamePanel extends JPanel implements ActionListener {
@@ -22,8 +23,12 @@ public class GamePanel extends JPanel implements ActionListener {
         MouseHandler handler = new MouseHandler();
         this.addMouseListener(handler);
         this.addMouseMotionListener(handler);
-        timer = new Timer(50, this);
+        timer = new Timer(1000, this);
         timeElapsed = 0;
+    }
+
+    public void setUIPerson(Person person) {
+        uiPerson = new UIPerson(person);
     }
 
     public void startTimer() {
@@ -39,18 +44,26 @@ public class GamePanel extends JPanel implements ActionListener {
         Graphics2D g = (Graphics2D) graphics;
         g.setColor(new Color(100, 100, 0));
         g.fillRect(0, 0, 1280, 720);
+        g.drawImage(Images.toBufferedImage(Images.loadImage("upper_map.png").getScaledInstance(1280, 240, Image.SCALE_DEFAULT)), null, 0, 0);
         g.drawImage(Images.toBufferedImage(Images.loadImage("lower_left.png").getScaledInstance(430, 480, Image.SCALE_DEFAULT)), null, 0, 240);
         g.drawImage(Images.toBufferedImage(Images.loadImage("desk.png").getScaledInstance(880, 480, Image.SCALE_DEFAULT)), null, 430, 240);
-        g.drawImage(Images.toBufferedImage(Images.loadImage("bell.png").getScaledInstance(150, 225, Image.SCALE_DEFAULT)), null, 1150, 180);
+        g.drawImage(Images.toBufferedImage(Images.loadImage("bell.png").getScaledInstance(250, 320, Image.SCALE_DEFAULT)), null, 1100, 160);
+        g.setColor(Color.GRAY);
+        g.fillRect(0, 240, 150, 40);
+        g.setColor(Color.LIGHT_GRAY);
+        g.setFont(Fonts.loadFont(Fonts.SPY, 30));
+        g.drawString(manager.DATE, 10, 270);
+        if (manager.getTime() % 60 > 9)
+            g.drawString((manager.getTime() / 60) + ":" + (manager.getTime() % 60), 20, 700);
+        else
+            g.drawString((manager.getTime() / 60) + ":0" + (manager.getTime() % 60), 20, 700);
         uiPerson.draw(g);
         uiPerson.drawDocuments(g);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        timeElapsed += timer.getDelay() / 1000;
-        if (timeElapsed * 1000 % 1000 == 0)
-            manager.decreaseTime();
+        manager.decreaseTime();
         if (manager.getTime() <= 0) {
             timer.stop();
         }
@@ -61,14 +74,19 @@ public class GamePanel extends JPanel implements ActionListener {
         @Override
         public void mousePressed(MouseEvent e) {
             boolean documentClicked = false;
-            ArrayList<UIDocument> documents = uiPerson.getDocuments();
-            for (int i = documents.size() - 1; i >= 0; i--) {
-                if (documents.get(i).onComponent(new Coordinate(e.getX(), e.getY()))) {
-                    wherePressed = new Coordinate(e.getX(), e.getY());
-                    documentClicked = true;
-                    document = documents.remove(i);
-                    documents.add(document);
-                    break;
+            if (e.getX() >= 1190 && e.getY() >= 330 && e.getX() <= 1245 && e.getY() <= 390) {
+                manager.setDecision(false);
+                manager.nextPerson();
+            } else {
+                ArrayList<UIDocument> documents = uiPerson.getDocuments();
+                for (int i = documents.size() - 1; i >= 0; i--) {
+                    if (documents.get(i).onComponent(new Coordinate(e.getX(), e.getY()))) {
+                        wherePressed = new Coordinate(e.getX(), e.getY());
+                        documentClicked = true;
+                        document = documents.remove(i);
+                        documents.add(document);
+                        break;
+                    }
                 }
             }
             if (!documentClicked) {
@@ -77,7 +95,7 @@ public class GamePanel extends JPanel implements ActionListener {
         }
         @Override
         public void mouseReleased(MouseEvent e) {
-            if (document != null && document.getPosition().getX() < ) {
+            if (document != null && e.getX() < 430 && e.getY() > 240 && e.getY() < 500) {
                 document.setReturned();
                 boolean allReturned = true;
                 for (UIDocument doc : uiPerson.getDocuments()) {
@@ -90,6 +108,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     manager.nextPerson();
                 }
             }
+            repaint();
         }
         @Override
         public void mouseDragged(MouseEvent e) {
