@@ -6,7 +6,12 @@ import java.util.ArrayList;
 
 public class TeacherFactory {
     public static String generateName() {
-        return "";
+        String[] names = {"Mr. Finnegan", "Mr. O'Hayryy", "M. Deli", "Mr. Squisito", "Ms. Klean", "Mr. Jibjob", "Ms. Lardy", "M. Patato", "Ms. McMuffin",
+                "Mr. Bean", "Ms. Zong", "Mr. Jayaputra", "Ms. Jorji"
+        };
+        int num = (int) (Math.random()*names.length);
+
+        return names[num];
     }
 
     public static String generateGrade() {
@@ -23,7 +28,7 @@ public class TeacherFactory {
     }
 
     public static String generateBirthDate() {
-        int year = (int) (Math.random() * 5) + 2071;
+        int year = (int) (Math.random() * 5) + 2051;
         int month = (int) (Math.random() * 12) + 1;
         int day = (int) (Math.random() * 28) + 1;
         return year + "-" + month + "-" + day;
@@ -44,14 +49,14 @@ public class TeacherFactory {
         int year = 2089;
         int month = (int) (Math.random() * 5) + 8;
         int day = (int) (Math.random() * 28) + 1;
-        return year + "-" + month + "-" + day;
+        return month + "-" + day + "-" + year;
     }
 
     public static String generateVaccineExpiration(){
         int year = 2089;
         int month = (int) (Math.random() * 5) + 8;
         int day = (int) (Math.random() * 28) + 1;
-        return year + "-" + month + "-" + day;
+        return month + "-" + day + "-" + year;
     }
 
     public static String generatePermitDay(){

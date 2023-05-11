@@ -4,6 +4,5 @@ public enum GameState {
     TITLE,
     TUTORIAL,
     GAMEPLAY,
-    END,
-    RESET
+    END
 }

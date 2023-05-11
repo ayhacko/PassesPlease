@@ -42,7 +42,6 @@ public class UIStudentID extends UIDocument {
                 g.drawString("Height: " + ((StudentID) getDocument()).getHeight() + " cm", getPosition().getX() + 110, getPosition().getY() + 140);
                 g.drawString(((StudentID) getDocument()).getGrade(), getPosition().getX() + 40, getPosition().getY() + 40);
                 g.drawImage(Images.toBufferedImage(Images.loadImage(((StudentID) getDocument()).getImageString()).getScaledInstance(100, 100, Image.SCALE_DEFAULT)), null, getPosition().getX()+5, getPosition().getY()+45);
-                g.drawString(((StudentID) getDocument()).getWeight(), 340 , 693);
 
 
 

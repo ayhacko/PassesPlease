@@ -9,7 +9,7 @@ public class StudentFactory {
         String[] names = {"Logan", "Hayden", "Cameron", "Finley", "Avery", "Arden", "Landry", "JermaJesty", "Dweezil",
                 "Cricket", "Panda", "Sideral", "Raddix"
         };
-        int num = (int) (Math.random()*6)+1;
+        int num = (int) (Math.random()*names.length);
 
         return names[num];
     }
@@ -49,14 +49,14 @@ public class StudentFactory {
         int year = 2089;
         int month = (int) (Math.random() * 2) + 10;
         int day = (int) (Math.random() * 28) + 1;
-        return month + "/" + year + "/" + day;
+        return month + "/" + day + "/" + year;
     }
 
     public static String generateVaccineExpiration(){
         int year = 2089;
         int month = (int) (Math.random() * 2) + 10;
         int day = (int) (Math.random() * 28) + 1;
-        return month + "/" + year + "/" + day;
+        return month + "/" + day + "/" + year;
     }
 
     public static String generatePermitDay(){
