@@ -15,15 +15,15 @@ public class UIPerson {
         documents = new ArrayList();
         for (Document doc : person.getDocuments()) {
             if (doc instanceof EaglePass) {
-                documents.add(new UIEagleTimePass(new Coordinate(0, 0), doc));
+                documents.add(new UIEagleTimePass(new Coordinate(215, 540), doc));
             } else if (doc instanceof MediaPass) {
-                documents.add(new UIMediaPass(new Coordinate(0, 0), doc));
+                documents.add(new UIMediaPass(new Coordinate(215, 540), doc));
             } else if (doc instanceof StudentID) {
-                documents.add(new UIStudentID(new Coordinate(0, 0), doc));
+                documents.add(new UIStudentID(new Coordinate(215, 540), doc));
             } else if (doc instanceof TeacherID) {
-                documents.add(new UITeacherID(new Coordinate(0, 0), doc));
+                documents.add(new UITeacherID(new Coordinate(215, 540), doc));
             } else {
-                documents.add(new UIVaccinationCard(new Coordinate(0, 0), doc));
+                documents.add(new UIVaccinationCard(new Coordinate(215, 540), doc));
             }
         }
     }
