@@ -13,6 +13,7 @@ public class GameManager {
     private int timeLeft;
     private Person person;
     private boolean decision;
+    private String discrepancy;
 
     public GameManager(PassesPlease game) {
         this.game = game;
@@ -24,6 +25,7 @@ public class GameManager {
         } else {
             person = new Student();
         }
+        discrepancy = "";
     }
 
     public void setGameState(GameState state) {
@@ -35,17 +37,22 @@ public class GameManager {
         return person;
     }
 
+    public int getScore() {
+        return score;
+    }
+
     public void setDecision(boolean decision) {
         this.decision = decision;
     }
 
     public void nextPerson() {
-        if (!decision && !person.letThrough()) {
-            score += 5;
-            timeLeft += 5;
-        } else if (decision && person.letThrough()) {
+        if (decision == person.letThrough()) {
             score += 1;
+            timeLeft += 5;
+            discrepancy = "";
         } else {
+            discrepancy = "CITATION: " + person.getReason();
+            score -= 1;
             timeLeft -= 15;
         }
         if (Math.random() > 0.85) {
@@ -62,5 +69,9 @@ public class GameManager {
 
     public void decreaseTime() {
         timeLeft--;
+    }
+
+    public String getDiscrepancy() {
+        return discrepancy;
     }
 }

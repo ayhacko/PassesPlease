@@ -48,15 +48,20 @@ public class GamePanel extends JPanel implements ActionListener {
         g.drawImage(Images.toBufferedImage(Images.loadImage("lower_left.png").getScaledInstance(430, 480, Image.SCALE_DEFAULT)), null, 0, 240);
         g.drawImage(Images.toBufferedImage(Images.loadImage("desk.png").getScaledInstance(880, 480, Image.SCALE_DEFAULT)), null, 430, 240);
         g.drawImage(Images.toBufferedImage(Images.loadImage("bell.png").getScaledInstance(250, 320, Image.SCALE_DEFAULT)), null, 1100, 160);
-        g.setColor(Color.GRAY);
+        g.setColor(Color.DARK_GRAY);
         g.fillRect(0, 240, 150, 40);
-        g.setColor(Color.LIGHT_GRAY);
+        g.setColor(Color.GRAY);
         g.setFont(Fonts.loadFont(Fonts.SPY, 30));
         g.drawString(manager.DATE, 10, 270);
+        g.setFont(Fonts.loadFont(Fonts.SPY, 40));
         if (manager.getTime() % 60 > 9)
-            g.drawString((manager.getTime() / 60) + ":" + (manager.getTime() % 60), 20, 700);
+            g.drawString((manager.getTime() / 60) + ":" + (manager.getTime() % 60), 30, 690);
         else
-            g.drawString((manager.getTime() / 60) + ":0" + (manager.getTime() % 60), 20, 700);
+            g.drawString((manager.getTime() / 60) + ":0" + (manager.getTime() % 60), 30, 690);
+        g.drawString(manager.getScore() + "", 310, 695);
+        g.setFont(Fonts.loadFont(Fonts.SPY, 30));
+        FontMetrics metrics = g.getFontMetrics(Fonts.loadFont(Fonts.SPY, (float) 30));
+        g.drawString(manager.getDiscrepancy(), (880 - metrics.stringWidth(manager.getDiscrepancy())) / 2 + 430, 690);
         uiPerson.draw(g);
         uiPerson.drawDocuments(g);
     }

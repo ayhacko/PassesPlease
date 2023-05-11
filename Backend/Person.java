@@ -39,6 +39,8 @@ public abstract class Person {
 
     public abstract ArrayList<Document> getDocuments();
 
+    public abstract String getReason();
+
     public String getImageString() { return imageString; };
 
     public String getName() {
