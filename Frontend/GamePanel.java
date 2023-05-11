@@ -69,9 +69,6 @@ public class GamePanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         manager.decreaseTime();
-        if (manager.getTime() <= 0) {
-            timer.stop();
-        }
         repaint();
     }
 

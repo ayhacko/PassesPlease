@@ -51,7 +51,7 @@ public class TitlePanel extends JPanel implements ActionListener, MouseListener 
     @Override
     public void mousePressed(MouseEvent e) {
         timer.stop();
-        manager.setGameState(GameState.GAMEPLAY);
+        manager.setGameState(GameState.TUTORIAL);
     }
 
     @Override

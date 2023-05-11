@@ -19,7 +19,7 @@ public class GameManager {
         this.game = game;
         state = GameState.TITLE;
         score = 0;
-        timeLeft = 300;
+        timeLeft = 3;
         if (Math.random() > 0.85) {
             person = new Teacher();
         } else {
@@ -54,6 +54,10 @@ public class GameManager {
             discrepancy = "CITATION: " + person.getReason();
             score -= 1;
             timeLeft -= 15;
+            if (timeLeft < 0) {
+                game.getGamePanel().stopTimer();
+                setGameState(GameState.END);
+            }
         }
         if (Math.random() > 0.85) {
             person = new Teacher();
@@ -69,6 +73,10 @@ public class GameManager {
 
     public void decreaseTime() {
         timeLeft--;
+        if (timeLeft < 0) {
+            game.getGamePanel().stopTimer();
+            setGameState(GameState.END);
+        }
     }
 
     public String getDiscrepancy() {

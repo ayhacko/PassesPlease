@@ -1,6 +1,8 @@
 package Frontend;
 
 import Backend.Document;
+import Backend.MediaPass;
+import Backend.StudentID;
 import Frontend.Coordinate;
 import Resources.Images.Images;
 
@@ -33,6 +35,7 @@ public class UIMediaPass extends UIDocument {
         if (!getReturned()) {
             if (getPosition().getX() > 410) {
                 g.drawImage(Images.toBufferedImage(Images.loadImage("media_pass.png").getScaledInstance(EXPANDED_WIDTH, EXPANDED_HEIGHT, Image.SCALE_DEFAULT)), null, getPosition().getX(), getPosition().getY());
+                //g.drawString("Name: " + ((MediaPass) getDocument()).getName(), getPosition().getX() + 110, getPosition().getY() + 60);
             } else {
                 g.drawImage(Images.toBufferedImage(Images.loadImage("media_pass_small.png").getScaledInstance(EXPANDED_WIDTH_SMALL, EXPANDED_HEIGHT_SMALL, Image.SCALE_DEFAULT)), null, getPosition().getX(), getPosition().getY());
             }

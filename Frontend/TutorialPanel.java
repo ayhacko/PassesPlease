@@ -1,36 +1,31 @@
 package Frontend;
 
-import javax.swing.*;
 import Backend.*;
 import Resources.Fonts.Fonts;
 import Resources.Images.Images;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class EndPanel extends JPanel implements MouseListener {
-    PassesPlease game;
-
+public class TutorialPanel extends JPanel implements MouseListener {
     private GameManager manager;
+    private int slide;
 
-    public EndPanel(GameManager manager, PassesPlease game) {
+    public TutorialPanel(GameManager manager) {
         this.manager = manager;
-        this.game = game;
+        slide = 1;
         addMouseListener(this);
     }
 
     @Override
     public void paintComponent(Graphics graphics) {
         Graphics2D g = (Graphics2D) graphics;
-        g.drawImage(Images.toBufferedImage(Images.loadImage("end_background.png").getScaledInstance(1280, 745, Image.SCALE_DEFAULT)), null, 0, 0);
-        g.setColor(Color.WHITE);
-        g.setFont(Fonts.loadFont(Fonts.SPY, 40));
-        FontMetrics metrics = g.getFontMetrics(Fonts.loadFont(Fonts.SPY, (float) 40));
-        g.drawString("Your score: " + manager.getScore(), (getWidth() - metrics.stringWidth("Your score: " + manager.getScore())) / 2, 375);
+        g.drawImage(Images.toBufferedImage(Images.loadImage("tutorial" + slide + ".png").getScaledInstance(1280, 745, Image.SCALE_DEFAULT)), null, 0, 0);
         g.setColor(Color.GRAY);
         g.setFont(Fonts.loadFont(Fonts.SPY, 30));
-        g.drawString("Click anywhere to try again", 450, 600);
+        g.drawString("Click anywhere to continue", 900, 700);
     }
 
     @Override
@@ -40,7 +35,10 @@ public class EndPanel extends JPanel implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        game.reset();
+        slide++;
+        if (slide > 6) {
+            manager.setGameState(GameState.GAMEPLAY);
+        }
         repaint();
     }
 
