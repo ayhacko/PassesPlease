@@ -43,8 +43,9 @@ public class UITeacherID extends UIDocument{
                 g.drawString("DoB: " + ((TeacherID) getDocument()).getBirthDate(), getPosition().getX() + 110, getPosition().getY() + 100);
                 g.drawString("Exp.: " + ((TeacherID) getDocument()).getIDExpiration(), getPosition().getX() + 110, getPosition().getY() + 120);
                 g.drawString("Height: " + ((TeacherID) getDocument()).getHeight() + "cm", getPosition().getX() + 110, getPosition().getY() + 140);
+                g.drawString("Weight: " + ((TeacherID) getDocument()).getWeight() + "kg",getPosition().getX() + 110,getPosition().getY() + 160);
                 g.drawImage(Images.toBufferedImage(Images.loadImage(((TeacherID) getDocument()).getImageString()).getScaledInstance(100, 100, Image.SCALE_DEFAULT)), null, getPosition().getX()+5, getPosition().getY()+45);
-                g.drawString(((TeacherID) getDocument()).getWeight(),340,693);
+                //g.drawString(((TeacherID) getDocument()).getWeight(),340,693);
 
 
 

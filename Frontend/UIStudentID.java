@@ -40,6 +40,7 @@ public class UIStudentID extends UIDocument {
                 g.drawString("DoB: " + ((StudentID) getDocument()).getBirthDate(), getPosition().getX() + 110, getPosition().getY() + 100);
                 g.drawString("Exp.: " + ((StudentID) getDocument()).getIDExpiration(), getPosition().getX() + 110, getPosition().getY() + 120);
                 g.drawString("Height: " + ((StudentID) getDocument()).getHeight() + " cm", getPosition().getX() + 110, getPosition().getY() + 140);
+                g.drawString("Weight: " + ((StudentID) getDocument()).getWeight() + "kg",getPosition().getX() + 110,getPosition().getY() + 160);
                 g.drawString(((StudentID) getDocument()).getGrade(), getPosition().getX() + 40, getPosition().getY() + 40);
                 g.drawImage(Images.toBufferedImage(Images.loadImage(((StudentID) getDocument()).getImageString()).getScaledInstance(100, 100, Image.SCALE_DEFAULT)), null, getPosition().getX()+5, getPosition().getY()+45);
 

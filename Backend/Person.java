@@ -34,7 +34,7 @@ public abstract class Person {
         eaglePass = new EaglePass(idNumber, height, weight);
         mediaPass = new MediaPass(name);
         supplement = new VaccinationSupplement(idNumber, birthDate, vaccineExpiration);
-        letThrough = Math.random() >= 0.33;
+        letThrough = Math.random() >= 0.6;
     }
 
     public abstract ArrayList<Document> getDocuments();
